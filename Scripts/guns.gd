@@ -37,6 +37,7 @@ func handle_inputs():
 #@export var maxrange: float
 #@export var knockback: float
 func shoot():
+	$Sprite2D/shootPoint/CPUParticles2D.emitting = true
 	var bullet_instance = bullet.instantiate()
 	
 	bullet_instance.scale = Vector2(0.15, 0.15)
