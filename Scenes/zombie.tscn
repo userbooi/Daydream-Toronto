@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://buklchbsap0a2"]
+[gd_scene load_steps=12 format=3 uid="uid://bilito4ayw7if"]
 
 [ext_resource type="Texture2D" uid="uid://df2kl25x0kqkj" path="res://Assets/entities/zombie_walking1.png" id="1_bqqdo"]
 [ext_resource type="Script" path="res://Scripts/zombie.gd" id="1_yqs2x"]
