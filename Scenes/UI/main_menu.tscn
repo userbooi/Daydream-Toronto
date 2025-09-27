@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=3 uid="uid://byt7w5sebnq46"]
+
+[ext_resource type="Texture2D" uid="uid://c4vu6aq3h773o" path="res://icon.svg" id="1_o50ko"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q0lsu"]
+font_size = 60
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_o50ko")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -436.0
+offset_right = 436.0
+offset_bottom = 241.0
+grow_horizontal = 2
+text = "Untitled Game"
+label_settings = SubResource("LabelSettings_q0lsu")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -425.0
+offset_top = -353.0
+offset_right = 426.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 20
+alignment = 1
+vertical = true
+
+[node name="Play" type="Button" parent="BoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Play"
+
+[node name="Exit" type="Button" parent="BoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Exit"
+
+[connection signal="pressed" from="BoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="BoxContainer/Exit" to="." method="_on_exit_pressed"]

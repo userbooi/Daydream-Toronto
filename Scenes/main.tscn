@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=4 uid="uid://bwekn7po0i1oq"]
 
-[ext_resource type="PackedScene" uid="uid://c6wf214xk2tsd" path="res://Scenes/player.tscn" id="1_xm4y6"]
-[ext_resource type="PackedScene" uid="uid://bilito4ayw7if" path="res://Scenes/zombie.tscn" id="2_eiouw"]
+[ext_resource type="PackedScene" uid="uid://cy6cmcrhv808e" path="res://Scenes/player.tscn" id="1_xm4y6"]
+[ext_resource type="PackedScene" uid="uid://buklchbsap0a2" path="res://Scenes/zombie.tscn" id="2_eiouw"]
 [ext_resource type="Texture2D" uid="uid://dyf7ixj0178s3" path="res://Assets/tilesheets/brutalist_tileset.png" id="4_eetd7"]
 [ext_resource type="Texture2D" uid="uid://dig6qnjyeaneq" path="res://Assets/tilesheets/floor_tiles/floor_concrete1.png" id="5_aedqq"]
 [ext_resource type="Texture2D" uid="uid://8e7xpfjf60am" path="res://Assets/tilesheets/floor_tiles/floor_concrete2.png" id="6_512k1"]
@@ -682,7 +682,19 @@ tile_set = SubResource("TileSet_4axwg")
 physics_material_override = SubResource("PhysicsMaterial_gv75s")
 
 [node name="Zombie" parent="." instance=ExtResource("2_eiouw")]
-position = Vector2(49, 26)
-gravity_scale = 0.0
+position = Vector2(190, 84)
+lock_rotation = true
+
+[node name="Zombie8" parent="." instance=ExtResource("2_eiouw")]
+position = Vector2(31, 275)
+lock_rotation = true
+
+[node name="Zombie9" parent="." instance=ExtResource("2_eiouw")]
+position = Vector2(79, -162)
+lock_rotation = true
+
+[node name="Zombie10" parent="." instance=ExtResource("2_eiouw")]
+position = Vector2(-233, -126)
+lock_rotation = true
 
 [node name="Projectiles" type="Node" parent="."]
