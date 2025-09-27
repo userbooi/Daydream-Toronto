@@ -14,5 +14,5 @@ bullet = ExtResource("2_h2avl")
 position = Vector2(4.26667, -1.26667)
 texture = ExtResource("2_4jqow")
 
-[node name="shootPoint" type="Marker2D" parent="."]
-position = Vector2(14.2667, -2.4)
+[node name="shootPoint" type="Marker2D" parent="Sprite2D"]
+position = Vector2(10, -1.13333)

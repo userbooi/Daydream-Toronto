@@ -32,9 +32,9 @@ func shoot():
 	var bullet_instance = bullet.instantiate()
 	
 	bullet_instance.scale = Vector2(0.15, 0.15)
-	bullet_instance.global_position = $shootPoint.global_position
-	bullet_instance.global_rotation = $shootPoint.global_rotation
-	bullet_instance.starting_point = $shootPoint.global_position
+	bullet_instance.global_position = $Sprite2D/shootPoint.global_position
+	bullet_instance.global_rotation = $Sprite2D/shootPoint.global_rotation
+	bullet_instance.starting_point = global_position
 	bullet_instance.speed = Game.gun_stats[Game.gun_names[Game.gun_num]][0]
 	bullet_instance.damage = Game.gun_stats[Game.gun_names[Game.gun_num]][1]
 	bullet_instance.maxrange = Game.gun_stats[Game.gun_names[Game.gun_num]][2]
@@ -44,42 +44,44 @@ func shoot():
 
 func detect_angle():
 	if (get_global_mouse_position().x < Game.player.position.x):
-		$Sprite2D.flip_v = true
+		#$Sprite2D.flip_v = true
+		$Sprite2D.scale = Vector2(1, -1)
 		position = Vector2(-5,0)
 		#$shootPoint.position.y = 
 	else:
-		$Sprite2D.flip_v = false
+		#$Sprite2D.flip_v = false
+		$Sprite2D.scale = Vector2(1, 1)
 		position = Vector2(5, 0)
 				
 func change_gun():
 	var offsetVector
 	var img = Game.crosshair_sprites[Game.gun_names[Game.gun_num]].get_image()
-	img.resize(img.get_width() * 3, img.get_height() * 3, Image.INTERPOLATE_NEAREST)  # scale ×2
+	img.resize(img.get_width() * 2, img.get_height() * 2, Image.INTERPOLATE_NEAREST)  # scale ×2
 	var scaled_tex := ImageTexture.create_from_image(img)
 	
 	if Game.gun_num == 0:
 		
 		$Sprite2D.position = Vector2(3.8, -1.2)
 		offsetVector = Vector2(0, 40)
-		$shootPoint.position = Vector2(9.8, -3.9)
+		$Sprite2D/shootPoint.position = Vector2(9.8, -3.9)
 		
 	elif Game.gun_num == 1:
 		
 		$Sprite2D.position = Vector2(4.533, -1.2)
 		offsetVector = Vector2(20, 12)
-		$shootPoint.position = Vector2(14.1, -1.8)
+		$Sprite2D/shootPoint.position = Vector2(14.1, -1.8)
 		
 	elif Game.gun_num == 2:
 		
 		$Sprite2D.position = Vector2(9.6, -1.2)
 		offsetVector = Vector2(20, 12)
-		$shootPoint.position = Vector2(22, -4.4)
+		$Sprite2D/shootPoint.position = Vector2(22, -4.4)
 		
 	elif Game.gun_num == 3:
 		
 		$Sprite2D.position = Vector2(6.467, -1.2)
 		offsetVector = Vector2(20, 12)
-		$shootPoint.position = Vector2(17, -4)
+		$Sprite2D/shootPoint.position = Vector2(17, -4)
 		
 	elif Game.gun_num == 4:
 		
