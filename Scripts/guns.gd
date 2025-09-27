@@ -18,7 +18,32 @@ func handle_inputs():
 			else:
 				Game.gun_num = 0
 			change_gun()
+<<<<<<< Updated upstream
 				
+=======
+	if Input.is_action_just_pressed("fire"):
+		shoot()
+
+#@export var speed: float
+#@export var damage: int
+#@export var maxrange: float
+#@export var knockback: float
+func shoot():
+	$Sprite2D/shootPoint/CPUParticles2D2.emitting = true
+	var bullet_instance = bullet.instantiate()
+	
+	bullet_instance.scale = Vector2(0.15, 0.15)
+	bullet_instance.global_position = $Sprite2D/shootPoint.global_position
+	bullet_instance.global_rotation = $Sprite2D/shootPoint.global_rotation
+	bullet_instance.starting_point = global_position
+	bullet_instance.speed = Game.gun_stats[Game.gun_names[Game.gun_num]][0]
+	bullet_instance.damage = Game.gun_stats[Game.gun_names[Game.gun_num]][1]
+	bullet_instance.maxrange = Game.gun_stats[Game.gun_names[Game.gun_num]][2]
+	bullet_instance.knockback = Game.gun_stats[Game.gun_names[Game.gun_num]][3]
+	get_node("/root/Main/Projectiles").add_child(bullet_instance)
+	#$bullets.add_child(bullet_instance)
+
+>>>>>>> Stashed changes
 func detect_angle():
 	if (get_global_mouse_position().x < position.x):
 		$Sprite2D.flip_v = true

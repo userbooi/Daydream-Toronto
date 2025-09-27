@@ -1,7 +1,32 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=3 format=3 uid="uid://dr0nl1qny8n4r"]
+=======
+[gd_scene load_steps=9 format=3 uid="uid://dr0nl1qny8n4r"]
+>>>>>>> Stashed changes
 
 [ext_resource type="Script" path="res://Scripts/guns.gd" id="1_ptfro"]
 [ext_resource type="Texture2D" uid="uid://b5ta4gtry1q62" path="res://Assets/guns/bacon.png" id="2_4jqow"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ybceg"]
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_lxdf0"]
+_data = [Vector2(0, 0.49437), 0.0, 0.0, 0, 0, Vector2(0.307692, 0.334698), 0.0, 0.0, 0, 0, Vector2(0.925729, 0.614125), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Gradient" id="Gradient_5nxp1"]
+offsets = PackedFloat32Array(0, 0.0515759, 1)
+colors = PackedColorArray(1, 0, 0, 1, 0.890196, 0.670588, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_iqkix"]
+
+[sub_resource type="Curve" id="Curve_pttrx"]
+max_value = 200.0
+_data = [Vector2(0, 200), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="guns" type="Node2D"]
 position = Vector2(505, 382)
@@ -11,3 +36,27 @@ script = ExtResource("1_ptfro")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(4.26667, -1.26667)
 texture = ExtResource("2_4jqow")
+<<<<<<< Updated upstream
+=======
+
+[node name="shootPoint" type="Marker2D" parent="Sprite2D"]
+position = Vector2(10.31, -1.133)
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="Sprite2D/shootPoint"]
+material = SubResource("CanvasItemMaterial_ybceg")
+emitting = false
+amount = 50
+lifetime = 0.02
+one_shot = true
+direction = Vector2(0, 0)
+spread = 25.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 500.0
+initial_velocity_max = 1000.0
+scale_amount_min = 1.25
+scale_amount_max = 12.0
+scale_amount_curve = SubResource("Curve_lxdf0")
+color_ramp = SubResource("Gradient_5nxp1")
+color_initial_ramp = SubResource("Gradient_iqkix")
+anim_speed_curve = SubResource("Curve_pttrx")
+>>>>>>> Stashed changes
