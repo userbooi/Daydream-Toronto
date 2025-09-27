@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb4r7qlaaxcvl"
-path="res://.godot/imported/sniper_crosshair.png-1eab3b5e84a84158b05f859732e7d2ba.ctex"
+uid="uid://cot81hp1y1log"
+path="res://.godot/imported/pc.png-c26d80938ca210f5bfcd62f8a7a259f8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/crosshair/sniper_crosshair.png"
-dest_files=["res://.godot/imported/sniper_crosshair.png-1eab3b5e84a84158b05f859732e7d2ba.ctex"]
+source_file="res://Assets/crosshair/pc.png"
+dest_files=["res://.godot/imported/pc.png-c26d80938ca210f5bfcd62f8a7a259f8.ctex"]
 
 [params]
 
