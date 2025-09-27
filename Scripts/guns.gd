@@ -46,12 +46,12 @@ func detect_angle():
 	if (get_global_mouse_position().x < Game.player.position.x):
 		#$Sprite2D.flip_v = true
 		$Sprite2D.scale = Vector2(1, -1)
-		position = Vector2(-5,0)
+		position = Vector2(-5,-20)
 		#$shootPoint.position.y = 
 	else:
 		#$Sprite2D.flip_v = false
 		$Sprite2D.scale = Vector2(1, 1)
-		position = Vector2(5, 0)
+		position = Vector2(5, -20)
 				
 func change_gun():
 	var offsetVector
