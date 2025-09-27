@@ -1,3 +1,8 @@
-[gd_scene format=3 uid="uid://bwekn7po0i1oq"]
+[gd_scene load_steps=2 format=3 uid="uid://bwekn7po0i1oq"]
+
+[ext_resource type="TileSet" path="res://Assets/tielsheets/brutalist_tileset.png" id="1_ouh65"]
 
 [node name="Main" type="Node2D"]
+
+[node name="main_tilemap" type="TileMapLayer" parent="."]
+tile_set = ExtResource("1_ouh65")
