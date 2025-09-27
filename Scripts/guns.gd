@@ -6,6 +6,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	change_gun()
+	$Sprite2D/shootPoint/CPUParticles2D/PointLight2D.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -37,6 +38,7 @@ func handle_inputs():
 #@export var maxrange: float
 #@export var knockback: float
 func shoot():
+	$Sprite2D/shootPoint/CPUParticles2D/PointLight2D.visible = true
 	$Sprite2D/shootPoint/CPUParticles2D.emitting = true
 	var bullet_instance = bullet.instantiate()
 	
@@ -49,6 +51,8 @@ func shoot():
 	bullet_instance.maxrange = Game.gun_stats[Game.gun_names[Game.gun_num]][2]
 	bullet_instance.knockback = Game.gun_stats[Game.gun_names[Game.gun_num]][3]
 	get_node("/root/Main/Projectiles").add_child(bullet_instance)
+	await get_tree().create_timer(0.05).timeout
+	$Sprite2D/shootPoint/CPUParticles2D/PointLight2D.visible = false
 
 func detect_angle():
 	if (get_global_mouse_position().x < Game.player.position.x):
