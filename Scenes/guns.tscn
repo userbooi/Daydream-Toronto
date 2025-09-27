@@ -16,7 +16,10 @@ texture = ExtResource("2_4jqow")
 
 [node name="shootPoint" type="Marker2D" parent="Sprite2D"]
 position = Vector2(10, -1.13333)
+<<<<<<< HEAD
 
 [node name="Timer" type="Timer" parent="."]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+=======
+>>>>>>> fd3067d19631e60178072626b339e2af0acbe40a
