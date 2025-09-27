@@ -1,6 +1,5 @@
-[gd_scene load_steps=13 format=3 uid="uid://bwekn7po0i1oq"]
+[gd_scene load_steps=12 format=4 uid="uid://bwekn7po0i1oq"]
 
-[ext_resource type="Texture2D" uid="uid://c4vu6aq3h773o" path="res://icon.svg" id="1_ejst4"]
 [ext_resource type="PackedScene" uid="uid://c6wf214xk2tsd" path="res://Scenes/player.tscn" id="1_xm4y6"]
 [ext_resource type="PackedScene" uid="uid://dbbiyajx1ut08" path="res://Scenes/zombie.tscn" id="2_eiouw"]
 [ext_resource type="Texture2D" uid="uid://dyf7ixj0178s3" path="res://Assets/tilesheets/brutalist_tileset.png" id="4_eetd7"]
@@ -522,44 +521,37 @@ texture_region_size = Vector2i(32, 32)
 9:0/0 = 0
 9:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 7.25, 16, 7.5, 16, 16, -16, 16)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mf2gd"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j4l8v"]
 texture = ExtResource("5_aedqq")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2nimn"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_en0fl"]
 texture = ExtResource("6_512k1")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_okhee"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n0mw1"]
 texture = ExtResource("7_kvcxx")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
 [sub_resource type="TileSet" id="TileSet_4axwg"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_6sp8t")
-sources/1 = SubResource("TileSetAtlasSource_mf2gd")
-sources/2 = SubResource("TileSetAtlasSource_2nimn")
-sources/3 = SubResource("TileSetAtlasSource_okhee")
+sources/4 = SubResource("TileSetAtlasSource_j4l8v")
+sources/5 = SubResource("TileSetAtlasSource_en0fl")
+sources/6 = SubResource("TileSetAtlasSource_n0mw1")
 
 [node name="Main" type="Node2D"]
 
-[node name="temp_background" type="Sprite2D" parent="."]
-position = Vector2(-1.14441e-05, 1.49998)
-scale = Vector2(5.39063, 4.08594)
-texture = ExtResource("1_ejst4")
+[node name="buildings" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD+////BgAAAAAAAAD+/wAABgAAAAAAAAD+/wEABgAAAAAAAAD/////BgAAAAAAAAD//wAABgAAAAAAAAD//wEABgAAAAAAAAAAAP//BgAAAAAAAAAAAAAABgAAAAAAAAAAAAEABgAAAAAAAAABAP//BgAAAAAAAAABAAAABgAAAAAAAAABAAEABgAAAAAAAAACAP//BgAAAAAAAAACAAAABgAAAAAAAAACAAEABgAAAAAAAAA=")
+tile_set = SubResource("TileSet_4axwg")
 
 [node name="Player" parent="." instance=ExtResource("1_xm4y6")]
 
 [node name="Zombie" parent="." instance=ExtResource("2_eiouw")]
 position = Vector2(49, 26)
 gravity_scale = 0.0
-
-[node name="buildings" type="TileMapLayer" parent="."]
-tile_set = SubResource("TileSet_4axwg")
