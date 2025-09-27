@@ -18,9 +18,9 @@ func handle_inputs():
 			else:
 				Game.gun_num = 0
 			change_gun()
-				
+
 func detect_angle():
-	if (get_global_mouse_position().x < position.x):
+	if (get_global_mouse_position().x < Game.player.position.x):
 		$Sprite2D.flip_v = true
 	else:
 		$Sprite2D.flip_v = false

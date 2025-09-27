@@ -10,6 +10,9 @@ var friction : float
 @onready
 var physics_component : PhysicsComponent = get_node("PhysicsComponent")
 
+func _ready() -> void:
+	Game.player = self
+
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	
 	var input_vector = Input.get_vector("left", "right", "up", "down").normalized()
