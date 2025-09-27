@@ -58,6 +58,7 @@ sprite_frames = SubResource("SpriteFrames_g6t0i")
 animation = &"walk"
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 

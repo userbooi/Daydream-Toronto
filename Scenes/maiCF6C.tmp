@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwekn7po0i1oq"]
+
+[ext_resource type="Texture2D" uid="uid://c4vu6aq3h773o" path="res://icon.svg" id="1_ejst4"]
+[ext_resource type="Script" path="res://Scenes/main.gd" id="1_iqudb"]
+[ext_resource type="PackedScene" uid="uid://c6wf214xk2tsd" path="res://Scenes/player.tscn" id="1_xm4y6"]
+[ext_resource type="PackedScene" uid="uid://bilito4ayw7if" path="res://Scenes/zombie.tscn" id="2_eiouw"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_iqudb")
+
+[node name="temp_background" type="Sprite2D" parent="."]
+position = Vector2(-1.14441e-05, 1.49998)
+scale = Vector2(5.39063, 4.08594)
+texture = ExtResource("1_ejst4")
+
+[node name="Player" parent="." instance=ExtResource("1_xm4y6")]
+
+[node name="Zombie" parent="." instance=ExtResource("2_eiouw")]
+position = Vector2(49, 26)
+gravity_scale = 0.0
+
+[node name="Projectiles" type="Node" parent="."]

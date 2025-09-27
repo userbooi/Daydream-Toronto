@@ -545,6 +545,7 @@ sources/5 = SubResource("TileSetAtlasSource_en0fl")
 sources/6 = SubResource("TileSetAtlasSource_n0mw1")
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_iqudb")
 
 [node name="buildings" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAD+////BgAAAAAAAAD+/wAABgAAAAAAAAD+/wEABgAAAAAAAAD/////BgAAAAAAAAD//wAABgAAAAAAAAD//wEABgAAAAAAAAAAAP//BgAAAAAAAAAAAAAABgAAAAAAAAAAAAEABgAAAAAAAAABAP//BgAAAAAAAAABAAAABgAAAAAAAAABAAEABgAAAAAAAAACAP//BgAAAAAAAAACAAAABgAAAAAAAAACAAEABgAAAAAAAAA=")
@@ -555,3 +556,5 @@ tile_set = SubResource("TileSet_4axwg")
 [node name="Zombie" parent="." instance=ExtResource("2_eiouw")]
 position = Vector2(49, 26)
 gravity_scale = 0.0
+
+[node name="Projectiles" type="Node" parent="."]
