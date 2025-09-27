@@ -6,9 +6,9 @@ extends CharacterBody2D
 @export var knockback: float
 @export var travelled: float = 0
 var time_alive = 0
+var multiplier = 3
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
 var starting_point: Vector2
 var end_point: Vector2
 
@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	var direction: Vector2 = end_point - starting_point
-	velocity = direction.normalized() * speed
+	velocity = direction.normalized() * speed * multiplier
 
 	move_and_slide()
 

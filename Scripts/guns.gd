@@ -34,7 +34,7 @@ func shoot():
 	bullet_instance.scale = Vector2(0.15, 0.15)
 	bullet_instance.global_position = $shootPoint.global_position
 	bullet_instance.global_rotation = $shootPoint.global_rotation
-	bullet_instance.starting_point = $shootPoint.position
+	bullet_instance.starting_point = $shootPoint.global_position
 	bullet_instance.speed = Game.gun_stats[Game.gun_names[Game.gun_num]][0]
 	bullet_instance.damage = Game.gun_stats[Game.gun_names[Game.gun_num]][1]
 	bullet_instance.maxrange = Game.gun_stats[Game.gun_names[Game.gun_num]][2]
