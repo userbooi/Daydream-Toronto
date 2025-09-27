@@ -58,7 +58,7 @@ func detect_angle():
 		#$shootPoint.position.y = 
 	else:
 		$Sprite2D.scale = Vector2(1, 1)
-		position = Vector2(5, -20)]
+		position = Vector2(5, -20)
 				
 func change_gun():
 	var img = Game.crosshair_sprites[Game.gun_names[Game.gun_num]].get_image()
