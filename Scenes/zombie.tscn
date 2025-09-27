@@ -1,0 +1,57 @@
+[gd_scene load_steps=10 format=3 uid="uid://bilito4ayw7if"]
+
+[ext_resource type="Texture2D" uid="uid://df2kl25x0kqkj" path="res://Assets/entities/zombie_walking1.png" id="1_bqqdo"]
+[ext_resource type="Script" path="res://Scripts/zombie.gd" id="1_yqs2x"]
+[ext_resource type="Texture2D" uid="uid://bi1oevfdaprrc" path="res://Assets/entities/zombie_walking2.png" id="2_muw8h"]
+[ext_resource type="Texture2D" uid="uid://bf46ed0v1cvhy" path="res://Assets/entities/zombie_walking3.png" id="3_qv8td"]
+[ext_resource type="Texture2D" uid="uid://dijgp4w01ihse" path="res://Assets/entities/zombie_walking4.png" id="4_4no3n"]
+[ext_resource type="Texture2D" uid="uid://ddmep2wkkmpu2" path="res://Assets/entities/zombie_walking5.png" id="5_juhmj"]
+[ext_resource type="Script" path="res://Scenes/Components/physics_component.gd" id="6_eerim"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wet8x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_bqqdo")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_bqqdo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_muw8h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qv8td")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4no3n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_juhmj")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2cuyc"]
+
+[node name="Zombie" type="RigidBody2D"]
+script = ExtResource("1_yqs2x")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_wet8x")
+animation = &"walk"
+
+[node name="PhysicsComponent" type="Node" parent="."]
+script = ExtResource("6_eerim")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+shape = SubResource("CapsuleShape2D_2cuyc")
