@@ -30,9 +30,6 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 		$AnimatedSprite2D.flip_h = true
 	else:
 		$AnimatedSprite2D.flip_h = false
-	
-	
-	print(current_velocity)
 
 	physics_component.base_velocity = current_velocity
 	state.linear_velocity = physics_component.velocity
