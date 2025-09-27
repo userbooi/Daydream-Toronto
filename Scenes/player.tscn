@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c6wf214xk2tsd"]
+[gd_scene load_steps=11 format=3 uid="uid://cy6cmcrhv808e"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_jnvt1"]
 [ext_resource type="Texture2D" uid="uid://cak5i5tro8jyq" path="res://Assets/entities/player_walk1.png" id="2_8islb"]
@@ -44,12 +44,6 @@ animations = [{
 radius = 7.0
 height = 34.0
 
-[sub_resource type="Curve2D" id="Curve2D_t1xr5"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -308, -204, 0, 0, 0, 0, 313, -202, 0, 0, 0, 0, 315, 171, 0, 0, 0, 0, -307, 169, 0, 0, 0, 0, -309, -202)
-}
-point_count = 5
-
 [node name="Player" type="RigidBody2D"]
 y_sort_enabled = true
 collision_mask = 6
@@ -84,6 +78,3 @@ shape = SubResource("CapsuleShape2D_ydr1x")
 z_index = 1
 position = Vector2(5, -19)
 scale = Vector2(1.5, 1.5)
-
-[node name="zombieSpawn" type="Path2D" parent="."]
-curve = SubResource("Curve2D_t1xr5")

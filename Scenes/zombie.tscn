@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bilito4ayw7if"]
+[gd_scene load_steps=12 format=3 uid="uid://buklchbsap0a2"]
 
 [ext_resource type="Texture2D" uid="uid://df2kl25x0kqkj" path="res://Assets/entities/zombie_walking1.png" id="1_bqqdo"]
 [ext_resource type="Script" path="res://Scripts/zombie.gd" id="1_yqs2x"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://dijgp4w01ihse" path="res://Assets/entities/zombie_walking4.png" id="4_4no3n"]
 [ext_resource type="Texture2D" uid="uid://ddmep2wkkmpu2" path="res://Assets/entities/zombie_walking5.png" id="5_juhmj"]
 [ext_resource type="Script" path="res://Scenes/Components/physics_component.gd" id="6_eerim"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_adalu"]
+friction = 0.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wet8x"]
 animations = [{
@@ -49,6 +52,7 @@ radius = 120.017
 y_sort_enabled = true
 collision_layer = 2
 collision_mask = 7
+physics_material_override = SubResource("PhysicsMaterial_adalu")
 gravity_scale = 0.0
 script = ExtResource("1_yqs2x")
 movement_speed = 100.0
