@@ -12,5 +12,4 @@ var physics_component : PhysicsComponent = get_node("PhysicsComponent")
 
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	pass
-
 	

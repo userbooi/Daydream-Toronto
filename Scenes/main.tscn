@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=4 uid="uid://bwekn7po0i1oq"]
 
-[ext_resource type="PackedScene" uid="uid://c6wf214xk2tsd" path="res://Scenes/player.tscn" id="1_xm4y6"]
-[ext_resource type="PackedScene" uid="uid://dbbiyajx1ut08" path="res://Scenes/zombie.tscn" id="2_eiouw"]
+[ext_resource type="PackedScene" uid="uid://cy6cmcrhv808e" path="res://Scenes/player.tscn" id="1_xm4y6"]
+[ext_resource type="PackedScene" uid="uid://buklchbsap0a2" path="res://Scenes/zombie.tscn" id="2_eiouw"]
 [ext_resource type="Texture2D" uid="uid://dyf7ixj0178s3" path="res://Assets/tilesheets/brutalist_tileset.png" id="4_eetd7"]
 [ext_resource type="Texture2D" uid="uid://dig6qnjyeaneq" path="res://Assets/tilesheets/floor_tiles/floor_concrete1.png" id="5_aedqq"]
 [ext_resource type="Texture2D" uid="uid://8e7xpfjf60am" path="res://Assets/tilesheets/floor_tiles/floor_concrete2.png" id="6_512k1"]
