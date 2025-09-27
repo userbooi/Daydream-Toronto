@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cydowym7b3a1m"]
 
 [ext_resource type="Script" path="res://Scripts/bullet.gd" id="1_l2x30"]
-[ext_resource type="Texture2D" uid="uid://xo34pu753r1u" path="res://Assets/guns/bullet.png" id="1_xqav1"]
+[ext_resource type="Texture2D" path="res://Assets/guns/bullet.png" id="1_xqav1"]
 
 [sub_resource type="Gradient" id="Gradient_tsnsq"]
 offsets = PackedFloat32Array(0, 0.802292, 1)

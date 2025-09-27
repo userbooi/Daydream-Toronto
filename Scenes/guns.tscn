@@ -1,11 +1,8 @@
-<<<<<<< Updated upstream
-[gd_scene load_steps=3 format=3 uid="uid://dr0nl1qny8n4r"]
-=======
 [gd_scene load_steps=9 format=3 uid="uid://dr0nl1qny8n4r"]
->>>>>>> Stashed changes
 
 [ext_resource type="Script" path="res://Scripts/guns.gd" id="1_ptfro"]
 [ext_resource type="Texture2D" uid="uid://b5ta4gtry1q62" path="res://Assets/guns/bacon.png" id="2_4jqow"]
+[ext_resource type="PackedScene" uid="uid://cydowym7b3a1m" path="res://Scenes/bullet.tscn" id="2_h2avl"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ybceg"]
 particles_animation = true
@@ -32,12 +29,11 @@ point_count = 2
 position = Vector2(505, 382)
 scale = Vector2(15, 15)
 script = ExtResource("1_ptfro")
+bullet = ExtResource("2_h2avl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(4.26667, -1.26667)
 texture = ExtResource("2_4jqow")
-<<<<<<< Updated upstream
-=======
 
 [node name="shootPoint" type="Marker2D" parent="Sprite2D"]
 position = Vector2(10.31, -1.133)
@@ -59,4 +55,3 @@ scale_amount_curve = SubResource("Curve_lxdf0")
 color_ramp = SubResource("Gradient_5nxp1")
 color_initial_ramp = SubResource("Gradient_iqkix")
 anim_speed_curve = SubResource("Curve_pttrx")
->>>>>>> Stashed changes
