@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dr0nl1qny8n4r"]
+
+[ext_resource type="Script" path="res://Scripts/guns.gd" id="1_ptfro"]
+[ext_resource type="Texture2D" uid="uid://b5ta4gtry1q62" path="res://Assets/guns/bacon.png" id="2_4jqow"]
+
+[node name="guns" type="Node2D"]
+position = Vector2(505, 382)
+scale = Vector2(15, 15)
+script = ExtResource("1_ptfro")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4.26667, -1.26667)
+texture = ExtResource("2_4jqow")
