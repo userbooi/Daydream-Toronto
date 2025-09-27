@@ -81,6 +81,7 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_ydr1x")
 
 [node name="guns" parent="." instance=ExtResource("8_n14a5")]
+z_index = 1
 position = Vector2(5, -19)
 scale = Vector2(1.5, 1.5)
 
