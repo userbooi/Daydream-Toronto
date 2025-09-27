@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://buklchbsap0a2"]
+[gd_scene load_steps=11 format=3 uid="uid://bilito4ayw7if"]
 
 [ext_resource type="Texture2D" uid="uid://df2kl25x0kqkj" path="res://Assets/entities/zombie_walking1.png" id="1_bqqdo"]
 [ext_resource type="Script" path="res://Scripts/zombie.gd" id="1_yqs2x"]
@@ -46,6 +46,7 @@ radius = 12.0
 radius = 120.017
 
 [node name="Zombie" type="RigidBody2D"]
+y_sort_enabled = true
 collision_layer = 2
 collision_mask = 7
 gravity_scale = 0.0
@@ -55,6 +56,7 @@ acceleration = 1000.0
 offset_magnitude_range = 50.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(0, -17)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_wet8x")
