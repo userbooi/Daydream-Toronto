@@ -78,10 +78,3 @@ func _on_died() -> void:
 	Game.enemy_killed += 1
 	queue_free()
 	#death code here
-	
-#func _on_body_entered_me(body: Node):
-	#if (body.name == "obstacles" or body.name == "crate1" or body.name == "crate2") and :
-		#queue_free()
-		#Game.curr_enemy_num -= 1
-		#get_node("/root/Main/enemySpawnTimer").start()
-	

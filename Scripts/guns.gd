@@ -44,7 +44,6 @@ func shoot():
 	
 	for i in range(Game.gun_stats[Game.gun_names[Game.gun_num]][5]):
 		var bullet_instance = bullet.instantiate()
-		bullet_instance.name = "bullet" + str(get_node("/root/Main/Projectiles").get_child_count())
 		bullet_instance.scale = Vector2(0.15, 0.15)
 		bullet_instance.global_position = $Sprite2D/shootPoint.global_position
 		bullet_instance.increased_angle = 0
