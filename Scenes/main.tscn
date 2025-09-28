@@ -880,7 +880,6 @@ physics_material_override = SubResource("PhysicsMaterial_gv75s")
 
 [node name="Zombie" parent="." instance=ExtResource("2_eiouw")]
 position = Vector2(190, 84)
-lock_rotation = true
 
 [node name="Projectiles" type="Node" parent="."]
 
