@@ -1135,6 +1135,7 @@ libraries = {
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Sanity" parent="CanvasLayer" instance=ExtResource("10_t64d2")]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 15
