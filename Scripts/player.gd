@@ -19,6 +19,7 @@ var acceleration : float
 @export
 var friction : float
 
+@onready var og_zoom = $Camera2D.zoom
 @onready var curr_zoom = $Camera2D.zoom
 
 enum STATES {ALIVE, DEAD}
@@ -68,6 +69,12 @@ func _shrink_fov():
 	while $Camera2D.zoom.x <= curr_zoom.x * 1.2:
 		$Camera2D.zoom += Vector2(0.01, 0.01)
 		await get_tree().create_timer(0.02).timeout
+	curr_zoom = $Camera2D.zoom
+	
+func _redo_fov():
+	while $Camera2D.zoom.x > og_zoom.x:
+		$Camera2D.zoom -= Vector2(0.01, 0.01)
+		await get_tree().create_timer(0.01).timeout
 	curr_zoom = $Camera2D.zoom
 
 func _upgrade():

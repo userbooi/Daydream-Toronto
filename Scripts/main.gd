@@ -1,5 +1,6 @@
 extends Node2D
 signal sacrifice
+signal next_wave
 
 @onready var enemy = preload("res://Scenes/zombie.tscn")
 
@@ -43,9 +44,14 @@ func connect_signals():
 	$CanvasLayer/Sanity.connect("sac_effects",  Callable(self, "_dim_lights"))
 	$CanvasLayer/Sanity.connect("sac_effects", Callable(Game.player, "_upgrade"))
 	$CanvasLayer/Sanity.connect("sac_end", Callable(Game.player, "_revert"))
+	connect("next_wave", Callable(Game.player, "_redo_fov"))
+	connect("next_wave", Callable($CanvasLayer/Sanity, "_add_sanity"))
 	
 func _dim_lights():
 	$WorldEnvironment/PointLight2D.energy += 0.1
+	
+func redo_lights():
+	$WorldEnvironment/PointLight2D.energy = 0.8
 	
 func _start_death():
 	for node in get_node("Entities").get_children():
@@ -66,5 +72,17 @@ func check_enemy_left():
 		next_level()
 		
 func next_level():
-	Game.curr_level += 1
+	if Game.curr_level < 3:
+		Game.curr_level += 1
+		next_wave.emit()
+		redo_lights()
+		await get_tree().create_timer(1).timeout
+		Game.curr_enemy_num = 0
+		Game.enemy_killed = 0
+		$enemySpawnTimer.wait_time = Game.spawn_time[Game.curr_level]
+		$enemySpawnTimer.start()
+	else:
+		print("WIN")
+	
+	
 	

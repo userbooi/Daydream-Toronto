@@ -19,12 +19,9 @@ var original_position: Vector2
 var has_hit = false
 
 func _ready() -> void:
+	$Timer.start()
 	end_point = get_global_mouse_position()
 	hitbox_component.original_position = original_position
-
-func set_pos(pos: Vector2):
-	position = pos
-	$Timer.start()
 
 func _process(delta: float) -> void:
 	check_distance(delta)
@@ -50,6 +47,7 @@ func check_distance(delta: float) -> void:
 
 func _on_timer_timeout() -> void:
 	time_alive += 0.1
+	print(time_alive)
 
 
 func _on_hitbox_component_hit(hurtbox: HurtboxComponent) -> void:

@@ -38,10 +38,10 @@ var DEBUG = true
 var player
 var current_scene: Node
 
-var enemies: Array[int] = [10, 25, 35, 50]
+var enemies: Array[int] = [15, 35, 45, 70]
 var curr_level = 0
 
-var spawn_time = [0.5, 0.25, 0.15, 0.1]
+var spawn_time = [1, 0.7, 0.45, 0.2]
 
 var curr_enemy_num = 0
 var enemy_killed = 0

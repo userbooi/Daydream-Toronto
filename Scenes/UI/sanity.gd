@@ -26,3 +26,6 @@ func _sac():
 func _on_timer_timeout() -> void:
 	sacable = true
 	sac_end.emit()
+	
+func _add_sanity():
+	$TextureProgressBar.value += 20
