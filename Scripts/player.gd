@@ -69,4 +69,11 @@ func _shrink_fov():
 		$Camera2D.zoom += Vector2(0.01, 0.01)
 		await get_tree().create_timer(0.02).timeout
 	curr_zoom = $Camera2D.zoom
+
+func _upgrade():
+	var gun_num = round((randf() * 3) + 1)
+	$guns.set_gun(gun_num)
+	
+func _revert():
+	$guns.set_gun(0)
 	

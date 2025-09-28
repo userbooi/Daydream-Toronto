@@ -16,6 +16,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	check_inputs()
+	check_enemy_left()
 
 func check_inputs():
 	if Input.is_action_just_pressed("sacrifice"):
@@ -40,6 +41,8 @@ func connect_signals():
 	connect("sacrifice", Callable($CanvasLayer/Sanity, "_sac"))
 	$CanvasLayer/Sanity.connect("sac_effects", Callable(Game.player, "_shrink_fov"))
 	$CanvasLayer/Sanity.connect("sac_effects",  Callable(self, "_dim_lights"))
+	$CanvasLayer/Sanity.connect("sac_effects", Callable(Game.player, "_upgrade"))
+	$CanvasLayer/Sanity.connect("sac_end", Callable(Game.player, "_revert"))
 	
 func _dim_lights():
 	$WorldEnvironment/PointLight2D.energy += 0.1
@@ -57,3 +60,11 @@ func _start_death():
 	for node in get_node("Entities").get_children():
 		node.queue_free()
 	Game.player.linear_velocity = Vector2.ZERO
+	
+func check_enemy_left():
+	if Game.enemy_killed == Game.enemies[Game.curr_level]:
+		next_level()
+		
+func next_level():
+	Game.curr_level += 1
+	

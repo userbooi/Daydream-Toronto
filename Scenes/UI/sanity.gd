@@ -1,5 +1,6 @@
 extends Control
 signal sac_effects
+signal sac_end
 
 const max_time = 10
 var sacable = true
@@ -24,3 +25,4 @@ func _sac():
 
 func _on_timer_timeout() -> void:
 	sacable = true
+	sac_end.emit()

@@ -107,7 +107,48 @@ func change_gun():
 	firerate = Game.gun_stats[Game.gun_names[Game.gun_num]][4]
 	$Timer.wait_time = firerate
 	
-
+func set_gun(number):
+	var img = Game.crosshair_sprites[Game.gun_names[Game.gun_num]].get_image()
+	img.resize(img.get_width() * 3, img.get_height() * 3, Image.INTERPOLATE_NEAREST)  # scale ×2
+	var scaled_tex := ImageTexture.create_from_image(img)
+	
+	Game.gun_num = number
+	
+	if Game.gun_num == 0:
+		
+		$Sprite2D.position = Vector2(3.8, -1.2)
+		$Sprite2D/shootPoint.position = Vector2(9.8, -3.9)
+		
+	elif Game.gun_num == 1:
+		
+		$Sprite2D.position = Vector2(4.533, -1.2)
+		$Sprite2D/shootPoint.position = Vector2(14.1, -1.8)
+		
+	elif Game.gun_num == 2:
+		
+		$Sprite2D.position = Vector2(9.6, -1.2)
+		$Sprite2D/shootPoint.position = Vector2(22, -4.4)
+		
+	elif Game.gun_num == 3:
+		
+		$Sprite2D.position = Vector2(6.467, -1.2)
+		$Sprite2D/shootPoint.position = Vector2(17, -4)
+		
+	elif Game.gun_num == 4:
+		
+		$Sprite2D.position = Vector2(4.267, -1.2)
+		$Sprite2D/shootPoint.position = Vector2(12.6, -2.6)
+		
+	else:
+		
+		$Sprite2D.position = Vector2(8.3, -1.2)
+		$Sprite2D/shootPoint.position = Vector2(14, -2.4)
+		
+	$Sprite2D.texture = Game.gun_sprites[Game.gun_names[Game.gun_num]]
+	var hotspot = scaled_tex.get_size()/2
+	Input.set_custom_mouse_cursor(scaled_tex, Input.CURSOR_ARROW, hotspot)
+	firerate = Game.gun_stats[Game.gun_names[Game.gun_num]][4]
+	$Timer.wait_time = firerate
 
 func _on_timer_timeout() -> void:
 	fire = true
