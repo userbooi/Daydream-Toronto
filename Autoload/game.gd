@@ -22,7 +22,7 @@ var gun_stats: Dictionary = {
 	"sniper":   [800, 100, 5, 100, 1.5, 1, 0],
 	"tommy":    [250, 40, 2, 20, 0.27, 1, 0],
 	"sawedoff": [350, 70, 1, 10, 1, 5, PI/12],
-	"bacon":    [100, 100000, 0.5, 0, 0.05, 10, PI],
+	"bacon":    [100, 100000, 0.5, 0, 0.05, 100, 4 *PI],
 }
 #@export var speed: float
 #@export var damage: int
