@@ -28,6 +28,7 @@ var curr_state = STATES.ALIVE
 var gotDead = false
 
 func _ready() -> void:
+	$guns.set_gun(Game.gun_num)
 	gotDead = false
 	Game.player = self
 	freeze = false

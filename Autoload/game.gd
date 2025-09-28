@@ -66,3 +66,9 @@ func _deferred_switch_scene(scene_path: String) -> void:
 	current_scene = scene.instantiate()
 	get_tree().root.add_child(current_scene)
 	get_tree().current_scene = current_scene
+	
+func reset_game():
+	gun_num = 0
+	curr_level = 0
+	curr_enemy_num = 0
+	enemy_killed = 0

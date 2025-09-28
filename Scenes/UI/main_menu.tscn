@@ -12,6 +12,7 @@ var exit_button = $BoxContainer/Exit
 
 
 func _on_play_pressed() -> void:
+	Game.reset_game()
 	Game.switch_scene(\"res://Scenes/main.tscn\")
 
 

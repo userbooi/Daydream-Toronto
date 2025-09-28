@@ -2,6 +2,7 @@ extends BoxContainer
 
 
 func _on_play_again_pressed() -> void:
+	Game.reset_game()
 	Game.switch_scene("res://Scenes/main.tscn")
 
 

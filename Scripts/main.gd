@@ -39,18 +39,19 @@ func check_spawn_area(spawn_pos) -> bool:
 	
 	# Create a small "check shape" (circle here, could also use a rectangle)
 	var shape = CircleShape2D.new()
-	shape.radius = 16  # adjust to enemy size
+	shape.radius = 35  # adjust to enemy size
 	
 	var query = PhysicsShapeQueryParameters2D.new()
 	query.shape = shape
 	query.transform = Transform2D(0, spawn_pos)
 	query.collision_mask = 3  # adjust to match layers you want to avoid
-	
+
 	var result = space_state.intersect_shape(query)
 	
 	if result.size() == 0:
 		return true
 	else:
+		print('HI')
 		return false
 
 func _on_enemy_spawn_timer_timeout() -> void:
@@ -95,7 +96,6 @@ func _start_death():
 	Game.player.linear_velocity = Vector2.ZERO
 	$Player/AnimatedSprite2D.play("death")
 	$CanvasLayer/AnimationPlayer.play("start")
-	print("HI")
 	
 func check_enemy_left():
 	if Game.enemy_killed == Game.enemies[Game.curr_level]:
