@@ -102,7 +102,7 @@ func check_enemy_left():
 		next_level()
 		
 func next_level():
-	if Game.curr_level < 3:
+	if Game.curr_level < 1:
 		Game.curr_level += 1
 		next_wave.emit()
 		redo_lights()
@@ -111,6 +111,7 @@ func next_level():
 		Game.enemy_killed = 0
 		$enemySpawnTimer.wait_time = Game.spawn_time[Game.curr_level]
 		$enemySpawnTimer.start()
-	else:
-		print("WIN")
+	elif $CanvasLayer/Death_Label.text == "[center]YOU DIED[/center]":
+		$CanvasLayer/Death_Label.text = "[center]YOU SURVIVED[/center]"
+		$CanvasLayer/AnimationPlayer.play("start")
 	
