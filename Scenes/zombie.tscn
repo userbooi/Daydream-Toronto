@@ -1,4 +1,5 @@
 [gd_scene load_steps=18 format=3 uid="uid://buklchbsap0a2"]
+
 [ext_resource type="Texture2D" uid="uid://df2kl25x0kqkj" path="res://Assets/entities/zombie_walking1.png" id="1_bqqdo"]
 [ext_resource type="Script" path="res://Scripts/zombie.gd" id="1_yqs2x"]
 [ext_resource type="Texture2D" uid="uid://bi1oevfdaprrc" path="res://Assets/entities/zombie_walking2.png" id="2_muw8h"]
@@ -57,8 +58,6 @@ size = Vector2(34, 44)
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aqpfa"]
 radius = 15.0
 height = 36.0
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_dmqb4"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_vjy30"]
 polygon = PackedVector2Array(-10, 1, -10, 4, -3, 5, 9, 5, 10, -3, 13, -3, 12, -23, 10, -26, 8, -29, 5, -34, 3, -36, 0, -36, -4, -35, -6, -34, -9, -31, -8, -29, -7, -28, -8, -26, -13, -26, -15, -24, -17, -22, -18, -19, -17, -17, -14, -15, -12, -15, -7, -12, -8, -7, -8, -3, -8, 0, -9, 1)
@@ -126,3 +125,4 @@ occluder = SubResource("OccluderPolygon2D_vjy30")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_body_exited"]
+[connection signal="died" from="HealthComponent" to="." method="_on_died"]

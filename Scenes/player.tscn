@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cy6cmcrhv808e"]
+[gd_scene load_steps=17 format=3 uid="uid://cy6cmcrhv808e"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_jnvt1"]
 [ext_resource type="Texture2D" uid="uid://cak5i5tro8jyq" path="res://Assets/entities/player_walk1.png" id="2_8islb"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://Scripts/Components/health_component.gd" id="9_v7qyx"]
 [ext_resource type="Script" path="res://Scripts/Components/hurtbox_component.gd" id="10_dnbly"]
 [ext_resource type="Texture2D" uid="uid://bmvqu57y6bglh" path="res://Assets/lightmap/lightmap.png" id="11_t83i1"]
+[ext_resource type="Script" path="res://Scripts/health_bar.gd" id="12_u0y8h"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g6t0i"]
 animations = [{
@@ -54,6 +55,8 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -348, -227, 0, 0, 0, 0, 338, -220, 0, 0, 0, 0, 337, 181, 0, 0, 0, 0, -343, 179, 0, 0, 0, 0, -348, -228)
 }
 point_count = 5
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pubxs"]
+bg_color = Color(1, 0, 0, 1)
 
 [node name="Player" type="RigidBody2D"]
 y_sort_enabled = true
@@ -117,3 +120,14 @@ curve = SubResource("Curve2D_6ihey")
 [node name="PathFollow2D" type="PathFollow2D" parent="enemySpawner"]
 position = Vector2(-348, -227)
 rotation = 0.0102037
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -40.0
+offset_top = 8.0
+offset_right = 40.0
+offset_bottom = 12.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_pubxs")
+value = 67.0
+show_percentage = false
+script = ExtResource("12_u0y8h")
+
+[connection signal="died" from="HealthComponent" to="." method="_on_died"]
