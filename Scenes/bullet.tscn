@@ -24,13 +24,12 @@ scale = Vector2(10, 10)
 collision_layer = 8
 collision_mask = 6
 script = ExtResource("1_l2x30")
-metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_xqav1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4, 0)
+position = Vector2(2.2, 0)
 shape = SubResource("RectangleShape2D_ccltp")
 
 [node name="Timer" type="Timer" parent="."]
@@ -50,10 +49,12 @@ color_ramp = SubResource("Gradient_vxr86")
 
 [node name="HitboxComponent" type="Area2D" parent="."]
 collision_layer = 24
-collision_mask = 128
+collision_mask = 132
 script = ExtResource("3_6wey2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(0, -9.53674e-08)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_1m0h8")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

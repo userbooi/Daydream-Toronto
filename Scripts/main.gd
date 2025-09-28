@@ -27,6 +27,7 @@ func spawn_enemy(pos):
 	var new_enemy = enemy.instantiate()
 	new_enemy.position = pos
 	new_enemy.y_sort_enabled = true
+	new_enemy.z_index = 0
 	$Entities.add_child(new_enemy)
 
 func _on_enemy_spawn_timer_timeout() -> void:
