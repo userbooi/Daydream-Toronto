@@ -17,12 +17,12 @@ var crosshair_sprites: Dictionary = {
 	"bacon": preload("res://Assets/crosshair/bacon_cross.png")
 }
 var gun_stats: Dictionary = {
-	"pistol":   [200, 34, 400, 200, 0.5],
-	"smg":      [300, 20, 400, 150, 0.1],
-	"sniper":   [800, 100, 1, 1000, 1],
-	"tommy":    [250, 40, 1200, 200, 0.27],
-	"sawedoff": [200, 70, 1200, 100, 0.7],
-	"bacon":    [100, 1000000000, 1200, 0, 0.05],
+	"pistol":   [200, 34, 400, 20, 0.5],
+	"smg":      [300, 20, 400, 15, 0.1],
+	"sniper":   [800, 100, 1, 100, 1],
+	"tommy":    [250, 40, 1200, 20, 0.27],
+	"sawedoff": [200, 70, 1200, 10, 0.7],
+	"bacon":    [100, 100000, 120, 0, 0.05],
 }
 #@export var speed: float
 #@export var damage: int

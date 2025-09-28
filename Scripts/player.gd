@@ -1,14 +1,22 @@
 extends RigidBody2D
 
+@onready
+var health_component: HealthComponent = $HealthComponent
+@export
+var max_health : float
+
+@onready
+var hurtbox_component: HurtboxComponent = $HurtboxComponent
+@onready
+var physics_component : PhysicsComponent = $PhysicsComponent
+
+
 @export
 var movement_speed : float
 @export
 var acceleration : float
 @export
 var friction : float
-
-@onready
-var physics_component : PhysicsComponent = get_node("PhysicsComponent")
 
 func _ready() -> void:
 	Game.player = self
@@ -38,3 +46,6 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	state.linear_velocity = physics_component.velocity
 
 	
+func _on_death() -> void:
+	Game.player = null
+	queue_free()

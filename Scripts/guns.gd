@@ -49,7 +49,7 @@ func shoot():
 	bullet_instance.speed = Game.gun_stats[Game.gun_names[Game.gun_num]][0]
 	bullet_instance.damage = Game.gun_stats[Game.gun_names[Game.gun_num]][1]
 	bullet_instance.maxrange = Game.gun_stats[Game.gun_names[Game.gun_num]][2]
-	bullet_instance.knockback = Game.gun_stats[Game.gun_names[Game.gun_num]][3]
+	bullet_instance.knockback_force = Game.gun_stats[Game.gun_names[Game.gun_num]][3]
 	get_node("/root/Main/Projectiles").add_child(bullet_instance)
 	await get_tree().create_timer(0.05).timeout
 	$Sprite2D/shootPoint/CPUParticles2D/PointLight2D.visible = false

@@ -1,14 +1,15 @@
 extends RigidBody2D
 
-@export
-var movement_speed : float
-@export
-var acceleration : float
-@export
-var offset_magnitude_range : float
+@onready var health_component: HealthComponent = $HealthComponent
+@export var max_health: float
 
-@onready
-var physics_component : PhysicsComponent = get_node("PhysicsComponent")
+@onready var hitbox_component: HitboxComponent = $HitboxComponent
+@export var damage: float
+@export var knockback_force: float
+
+@onready var hurtbox_component: HurtboxComponent = $HurtboxComponent
+
+@onready var physics_component: PhysicsComponent = $PhysicsComponent
 
 enum STATE {
 	CHASING,
@@ -20,6 +21,13 @@ var current_state = STATE.CHASING
 var chasing_offset = Vector2.ZERO
 
 var player_position: Vector2
+
+@export
+var movement_speed : float
+@export
+var acceleration : float
+@export
+var offset_magnitude_range : float
 
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	
@@ -56,7 +64,6 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 
 func _on_body_entered(body: Node) -> void:
 	if body == Game.player:
-		print(chasing_offset)
 		current_state = STATE.BLINE
 		chasing_offset = Vector2.ZERO
 
