@@ -896,8 +896,10 @@ texture = ExtResource("9_3s0tp")
 
 [node name="Entities" type="Node" parent="."]
 
-[node name="Timer" type="Timer" parent="."]
+[node name="enemySpawnTimer" type="Timer" parent="."]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Sanity" parent="CanvasLayer" instance=ExtResource("10_t64d2")]
+
+[connection signal="timeout" from="enemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]
