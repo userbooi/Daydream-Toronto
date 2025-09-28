@@ -18,6 +18,8 @@ var acceleration : float
 @export
 var friction : float
 
+@onready var curr_zoom = $Camera2D.zoom
+
 func _ready() -> void:
 	Game.player = self
 
@@ -49,3 +51,10 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 func _on_death() -> void:
 	Game.player = null
 	queue_free()
+	
+func _shrink_fov():
+	while $Camera2D.zoom.x <= curr_zoom.x * 1.2:
+		$Camera2D.zoom += Vector2(0.01, 0.01)
+		await get_tree().create_timer(0.02).timeout
+	curr_zoom = $Camera2D.zoom
+	

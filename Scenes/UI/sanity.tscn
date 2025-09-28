@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1t2cdjw5dt56"]
+
+[ext_resource type="Script" path="res://Scenes/UI/sanity.gd" id="1_d55u8"]
+
+[sub_resource type="Gradient" id="Gradient_ymde6"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_x6ql3"]
+gradient = SubResource("Gradient_ymde6")
+width = 1152
+height = 32
+
+[sub_resource type="Gradient" id="Gradient_efrv5"]
+offsets = PackedFloat32Array(0, 0.330986)
+colors = PackedColorArray(0, 0, 0, 1, 1, 0.174173, 0.127215, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uwc62"]
+gradient = SubResource("Gradient_efrv5")
+width = 1140
+height = 16
+
+[node name="Sanity" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_d55u8")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+value = 100.0
+texture_under = SubResource("GradientTexture2D_x6ql3")
+texture_progress = SubResource("GradientTexture2D_uwc62")
+texture_progress_offset = Vector2(4, 8)
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

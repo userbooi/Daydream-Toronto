@@ -7,7 +7,6 @@ extends CharacterBody2D
 @export var damage: int
 @export var maxrange: float
 @export var knockback_force: float
-@export var travelled: float = 0
 
 var time_alive = 0
 var multiplier = 3
@@ -21,9 +20,6 @@ var has_hit = false
 func _ready() -> void:
 	end_point = get_global_mouse_position()
 	hitbox_component.original_position = global_position
-
-func set_pos(pos: Vector2):
-	position = pos
 	$Timer.start()
 
 func _process(delta: float) -> void:
@@ -36,7 +32,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func check_distance(delta: float) -> void:
-	if time_alive * speed * delta > maxrange:
+	if time_alive > maxrange:
 		queue_free()
 
 #func _physics_process(delta: float) -> void:

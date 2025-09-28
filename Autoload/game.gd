@@ -17,19 +17,18 @@ var crosshair_sprites: Dictionary = {
 	"bacon": preload("res://Assets/crosshair/bacon_cross.png")
 }
 var gun_stats: Dictionary = {
-	"pistol":   [200, 34, 400, 20, 0.5],
-	"smg":      [300, 20, 400, 15, 0.1],
-	"sniper":   [800, 100, 1, 100, 1],
-	"tommy":    [250, 40, 1200, 20, 0.27],
-	"sawedoff": [200, 70, 1200, 10, 0.7],
-	"bacon":    [100, 100000, 120, 0, 0.05],
+	"pistol":   [200, 34, 2, 20, 0.5],
+	"smg":      [300, 20, 1.5, 15, 0.1],
+	"sniper":   [800, 100, 5, 100, 1],
+	"tommy":    [250, 40, 2, 20, 0.27],
+	"sawedoff": [350, 70, 1, 10, 0.7],
+	"bacon":    [100, 100000, 4, 0, 0.05],
 }
 #@export var speed: float
 #@export var damage: int
 #@export var maxrange: float
 #@export var knockback: float
 # fire rate
-#@export var travelled: float = 0
 var gun_names = ["pistol", "smg", "sniper", "tommy", "sawedoff", "bacon"]
 var gun_num = 0
 var bullet = preload("res://Assets/guns/bullet.png")
@@ -38,6 +37,14 @@ var DEBUG = true
 
 var player
 var current_scene: Node
+
+var enemies: Array[int] = [10, 25, 35, 50]
+var curr_level = 0
+
+var spawn_time = [0.5, 0.25, 0.15, 0.1]
+
+var curr_enemy_num = 0
+var enemy_killed = 0
 
 func _ready() -> void:
 	var root: Node = get_tree().root
