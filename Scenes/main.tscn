@@ -890,3 +890,5 @@ scale = Vector2(100000, 100000)
 energy = 0.8
 blend_mode = 1
 texture = ExtResource("9_3s0tp")
+
+[node name="Entities" type="Node" parent="."]

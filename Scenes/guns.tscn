@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/guns.gd" id="1_ptfro"]
 [ext_resource type="Texture2D" uid="uid://b5ta4gtry1q62" path="res://Assets/guns/bacon.png" id="2_4jqow"]
-[ext_resource type="PackedScene" uid="uid://cydowym7b3a1m" path="res://Scenes/bullet.tscn" id="2_h2avl"]
+[ext_resource type="PackedScene" uid="uid://bjpdqqlb8qj3x" path="res://Scenes/bullet.tscn" id="2_h2avl"]
 [ext_resource type="Texture2D" uid="uid://dcpm7frin35xt" path="res://Assets/lightmap/ligthcone.png" id="4_jwee6"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_hh0m5"]
@@ -59,6 +59,7 @@ anim_speed_curve = SubResource("Curve_yy5x5")
 position = Vector2(171.533, 5.46667)
 rotation = -1.5708
 scale = Vector2(0.584746, 0.584746)
+color = Color(1, 1, 0.764706, 1)
 energy = 0.35
 texture = ExtResource("4_jwee6")
 

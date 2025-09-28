@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cy6cmcrhv808e"]
+[gd_scene load_steps=15 format=3 uid="uid://cy6cmcrhv808e"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_jnvt1"]
 [ext_resource type="Texture2D" uid="uid://cak5i5tro8jyq" path="res://Assets/entities/player_walk1.png" id="2_8islb"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dr0nl1qny8n4r" path="res://Scenes/guns.tscn" id="8_n14a5"]
 [ext_resource type="Script" path="res://Scripts/Components/health_component.gd" id="9_v7qyx"]
 [ext_resource type="Script" path="res://Scripts/Components/hurtbox_component.gd" id="10_dnbly"]
+[ext_resource type="Texture2D" uid="uid://bmvqu57y6bglh" path="res://Assets/lightmap/lightmap.png" id="11_t83i1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g6t0i"]
 animations = [{
@@ -95,3 +96,11 @@ script = ExtResource("10_dnbly")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
 position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_dawwe")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(2.2, 2.2)
+energy = 0.5
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 3.0
+texture = ExtResource("11_t83i1")
