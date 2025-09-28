@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://buklchbsap0a2"]
+[gd_scene load_steps=14 format=3 uid="uid://bilito4ayw7if"]
 
 [ext_resource type="Texture2D" uid="uid://df2kl25x0kqkj" path="res://Assets/entities/zombie_walking1.png" id="1_bqqdo"]
 [ext_resource type="Script" path="res://Scripts/zombie.gd" id="1_yqs2x"]
@@ -10,6 +10,9 @@
 [ext_resource type="Script" path="res://Scripts/Components/health_component.gd" id="8_n4y82"]
 [ext_resource type="Script" path="res://Scripts/Components/hurtbox_component.gd" id="9_pisbc"]
 [ext_resource type="Script" path="res://Scripts/Components/hitbox_component.gd" id="10_1yvik"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_adalu"]
+friction = 0.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wet8x"]
 animations = [{
@@ -44,6 +47,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2cuyc"]
 radius = 12.0
+height = 42.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sb41j"]
 radius = 120.017
@@ -54,10 +58,16 @@ size = Vector2(34, 44)
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aqpfa"]
 radius = 15.0
 height = 36.0
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_dmqb4"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_vjy30"]
+polygon = PackedVector2Array(-10, 1, -10, 4, -3, 5, 9, 5, 10, -3, 13, -3, 12, -23, 10, -26, 8, -29, 5, -34, 3, -36, 0, -36, -4, -35, -6, -34, -9, -31, -8, -29, -7, -28, -8, -26, -13, -26, -15, -24, -17, -22, -18, -19, -17, -17, -14, -15, -12, -15, -7, -12, -8, -7, -8, -3, -8, 0, -9, 1)
 
 [node name="Zombie" type="RigidBody2D"]
+y_sort_enabled = true
 collision_layer = 2
 collision_mask = 7
+physics_material_override = SubResource("PhysicsMaterial_adalu")
 gravity_scale = 0.0
 script = ExtResource("1_yqs2x")
 max_health = 100.0
@@ -67,13 +77,14 @@ acceleration = 1000.0
 offset_magnitude_range = 50.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(0, -17)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_wet8x")
 animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -12)
+position = Vector2(0, -15.59)
 shape = SubResource("CapsuleShape2D_2cuyc")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -108,6 +119,9 @@ script = ExtResource("10_1yvik")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 position = Vector2(0, -12)
 shape = SubResource("CapsuleShape2D_aqpfa")
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+material = SubResource("CanvasItemMaterial_dmqb4")
+occluder = SubResource("OccluderPolygon2D_vjy30")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
