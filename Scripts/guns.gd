@@ -46,6 +46,7 @@ func shoot():
 	bullet_instance.global_position = $Sprite2D/shootPoint.global_position
 	bullet_instance.global_rotation = $Sprite2D/shootPoint.global_rotation
 	bullet_instance.starting_point = global_position
+	bullet_instance.original_position = get_parent().global_position
 	bullet_instance.speed = Game.gun_stats[Game.gun_names[Game.gun_num]][0]
 	bullet_instance.damage = Game.gun_stats[Game.gun_names[Game.gun_num]][1]
 	bullet_instance.maxrange = Game.gun_stats[Game.gun_names[Game.gun_num]][2]

@@ -15,12 +15,13 @@ var multiplier = 3
 const SPEED = 300.0
 var starting_point: Vector2
 var end_point: Vector2
+var original_position: Vector2
 
 var has_hit = false
 
 func _ready() -> void:
 	end_point = get_global_mouse_position()
-	hitbox_component.original_position = global_position
+	hitbox_component.original_position = original_position
 
 func set_pos(pos: Vector2):
 	position = pos

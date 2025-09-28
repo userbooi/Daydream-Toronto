@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://crowdnien4gaw" path="res://Assets/entities/player_walk5.png" id="6_igv3n"]
 [ext_resource type="Script" path="res://Scripts/Components/physics_component.gd" id="7_jyxg6"]
 [ext_resource type="PackedScene" uid="uid://dr0nl1qny8n4r" path="res://Scenes/guns.tscn" id="8_n14a5"]
+[ext_resource type="Texture2D" uid="uid://bmvqu57y6bglh" path="res://Assets/lightmap/lightmap.png" id="9_qqu82"]
 [ext_resource type="Script" path="res://Scripts/Components/health_component.gd" id="9_v7qyx"]
 [ext_resource type="Script" path="res://Scripts/Components/hurtbox_component.gd" id="10_dnbly"]
 [ext_resource type="Texture2D" uid="uid://bmvqu57y6bglh" path="res://Assets/lightmap/lightmap.png" id="11_t83i1"]
@@ -71,6 +72,7 @@ animation = &"walk"
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -19)
 zoom = Vector2(2, 2)
+position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
