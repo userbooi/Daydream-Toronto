@@ -41,20 +41,24 @@ func handle_inputs():
 func shoot():
 	$Sprite2D/shootPoint/CPUParticles2D/PointLight2D.visible = true
 	$Sprite2D/shootPoint/CPUParticles2D.emitting = true
-	var bullet_instance = bullet.instantiate()
 	
-	bullet_instance.scale = Vector2(0.15, 0.15)
-	bullet_instance.global_position = $Sprite2D/shootPoint.global_position
-	bullet_instance.global_rotation = $Sprite2D/shootPoint.global_rotation
-	bullet_instance.starting_point = global_position
-	bullet_instance.original_position = get_parent().global_position
-	bullet_instance.speed = Game.gun_stats[Game.gun_names[Game.gun_num]][0]
-	bullet_instance.damage = Game.gun_stats[Game.gun_names[Game.gun_num]][1]
-	bullet_instance.maxrange = Game.gun_stats[Game.gun_names[Game.gun_num]][2]
-	bullet_instance.knockback_force = Game.gun_stats[Game.gun_names[Game.gun_num]][3]
-	get_node("/root/Main/Projectiles").add_child(bullet_instance)
-	await get_tree().create_timer(0.05).timeout
-	$Sprite2D/shootPoint/CPUParticles2D/PointLight2D.visible = false
+	for i in range(Game.gun_stats[Game.gun_names[Game.gun_num]][5]):
+		var bullet_instance = bullet.instantiate()
+		bullet_instance.scale = Vector2(0.15, 0.15)
+		bullet_instance.global_position = $Sprite2D/shootPoint.global_position
+		bullet_instance.increased_angle = 0
+		if Game.gun_stats[Game.gun_names[Game.gun_num]][6]:
+			bullet_instance.increased_angle = (randf() - 0.5) * PI/4
+			bullet_instance.global_rotation = $Sprite2D/shootPoint.global_rotation
+		bullet_instance.starting_point = global_position
+		bullet_instance.original_position = get_parent().global_position
+		bullet_instance.speed = Game.gun_stats[Game.gun_names[Game.gun_num]][0]
+		bullet_instance.damage = Game.gun_stats[Game.gun_names[Game.gun_num]][1]
+		bullet_instance.maxrange = Game.gun_stats[Game.gun_names[Game.gun_num]][2]
+		bullet_instance.knockback_force = Game.gun_stats[Game.gun_names[Game.gun_num]][3]
+		get_node("/root/Main/Projectiles").add_child(bullet_instance)
+		await get_tree().create_timer(0.05).timeout
+		$Sprite2D/shootPoint/CPUParticles2D/PointLight2D.visible = false
 
 func detect_angle():
 	if (get_global_mouse_position().x < Game.player.position.x):
@@ -108,11 +112,11 @@ func change_gun():
 	$Timer.wait_time = firerate
 	
 func set_gun(number):
+	Game.gun_num = number
+	
 	var img = Game.crosshair_sprites[Game.gun_names[Game.gun_num]].get_image()
 	img.resize(img.get_width() * 3, img.get_height() * 3, Image.INTERPOLATE_NEAREST)  # scale ×2
 	var scaled_tex := ImageTexture.create_from_image(img)
-	
-	Game.gun_num = number
 	
 	if Game.gun_num == 0:
 		

@@ -17,18 +17,20 @@ var crosshair_sprites: Dictionary = {
 	"bacon": preload("res://Assets/crosshair/bacon_cross.png")
 }
 var gun_stats: Dictionary = {
-	"pistol":   [200, 34, 2, 20, 0.5],
-	"smg":      [300, 20, 1.5, 15, 0.1],
-	"sniper":   [800, 100, 5, 100, 1],
-	"tommy":    [250, 40, 2, 20, 0.27],
-	"sawedoff": [350, 70, 1, 10, 0.7],
-	"bacon":    [100, 100000, 4, 0, 0.05],
+	"pistol":   [200, 34, 2, 20, 0.5, 1, 0],
+	"smg":      [300, 20, 1.5, 15, 0.1, 1, PI/15],
+	"sniper":   [800, 100, 5, 100, 1.5, 1, 0],
+	"tommy":    [250, 40, 2, 20, 0.27, 1, 0],
+	"sawedoff": [350, 70, 1, 10, 1, 5, PI/12],
+	"bacon":    [100, 100000, 0.5, 0, 0.05, 10, PI],
 }
 #@export var speed: float
 #@export var damage: int
 #@export var maxrange: float
 #@export var knockback: float
 # fire rate
+# # of bullets
+# spread true/false
 var gun_names = ["pistol", "smg", "sniper", "tommy", "sawedoff", "bacon"]
 var gun_num = 0
 var bullet = preload("res://Assets/guns/bullet.png")
@@ -38,10 +40,10 @@ var DEBUG = true
 var player
 var current_scene: Node
 
-var enemies: Array[int] = [15, 35, 45, 70]
+var enemies: Array[int] = [10, 25, 35, 50]
 var curr_level = 0
 
-var spawn_time = [1, 0.7, 0.45, 0.2]
+var spawn_time = [0.5, 0.25, 0.15, 0.1]
 
 var curr_enemy_num = 0
 var enemy_killed = 0

@@ -113,8 +113,8 @@ position = Vector2(1.19209e-07, -1.90735e-06)
 scale = Vector2(2.32669, 2.1753)
 energy = 0.5
 shadow_enabled = true
-shadow_filter = 2
-shadow_filter_smooth = 3.0
+shadow_filter = 1
+shadow_filter_smooth = 1.0
 texture = ExtResource("11_t83i1")
 
 [node name="enemySpawner" type="Path2D" parent="."]

@@ -17,10 +17,12 @@ var end_point: Vector2
 var original_position: Vector2
 
 var has_hit = false
+var increased_angle
 
 func _ready() -> void:
 	$Timer.start()
 	end_point = get_global_mouse_position()
+	end_point.y += sin(increased_angle) * (get_global_mouse_position() - starting_point).length()
 	hitbox_component.original_position = original_position
 
 func _process(delta: float) -> void:
@@ -47,7 +49,6 @@ func check_distance(delta: float) -> void:
 
 func _on_timer_timeout() -> void:
 	time_alive += 0.1
-	print(time_alive)
 
 
 func _on_hitbox_component_hit(hurtbox: HurtboxComponent) -> void:
