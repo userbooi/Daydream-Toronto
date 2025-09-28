@@ -11,7 +11,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	print($Timer.time_left)
+	pass
 	
 func _sac():
 	if sacable and $TextureProgressBar.value >= 20:

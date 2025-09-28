@@ -5,6 +5,9 @@ signal sacrifice
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$enemySpawnTimer.wait_time = Game.spawn_time[Game.curr_level]
+	$enemySpawnTimer.start()
+	
 	connect_signals()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -32,7 +35,7 @@ func _on_enemy_spawn_timer_timeout() -> void:
 func connect_signals():
 	connect("sacrifice", Callable($CanvasLayer/Sanity, "_sac"))
 	$CanvasLayer/Sanity.connect("sac_effects", Callable(Game.player, "_shrink_fov"))
-	connect("sacrifice", Callable(self, "_dim_lights"))
+	$CanvasLayer/Sanity.connect("sac_effects",  Callable(self, "_dim_lights"))
 	
 func _dim_lights():
 	$WorldEnvironment/PointLight2D.energy += 0.1
