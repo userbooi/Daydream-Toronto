@@ -93,7 +93,7 @@ size = Vector2(20, 26)
 
 [sub_resource type="Curve2D" id="Curve2D_6ihey"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -407, -325, 0, 0, 0, 0, 418, -322, 0, 0, 0, 0, 416, 268, 0, 0, 0, 0, -421, 262, 0, 0, 0, 0, -413, -323)
+"points": PackedVector2Array(0, 0, 0, 0, -348, -227, 0, 0, 0, 0, 338, -220, 0, 0, 0, 0, 337, 181, 0, 0, 0, 0, -343, 179, 0, 0, 0, 0, -348, -228)
 }
 point_count = 5
 
@@ -122,10 +122,6 @@ animation = &"death"
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -19)
 zoom = Vector2(2, 2)
-limit_left = -2183
-limit_top = -1000
-limit_right = 1096
-limit_bottom = 906
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
@@ -166,8 +162,8 @@ texture = ExtResource("11_t83i1")
 curve = SubResource("Curve2D_6ihey")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="enemySpawner"]
-position = Vector2(-407, -325)
-rotation = 0.00363635
+position = Vector2(-348, -227)
+rotation = 0.0102037
 
 [node name="HealthBar" type="ProgressBar" parent="."]
 z_index = 50

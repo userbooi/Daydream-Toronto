@@ -54,7 +54,6 @@ script = ExtResource("3_6wey2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 position = Vector2(0, 0.200001)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_1m0h8")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

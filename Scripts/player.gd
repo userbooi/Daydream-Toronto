@@ -34,6 +34,9 @@ func _ready() -> void:
 	z_index = 0
 	$guns.visible = true
 
+func _process(delta: float) -> void:
+	pass
+
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	if curr_state == STATES.ALIVE:
 		var input_vector = Input.get_vector("left", "right", "up", "down").normalized()
@@ -63,11 +66,13 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 		freeze = true
 		dead.emit()
 
+#func check_zoom():
+	#if curr_zoom > og_zoom:
+		#$PointLight2D.shadow_enabled = false
 
 func _on_died() -> void:
 	curr_state = STATES.DEAD
-	
-	
+
 func _shrink_fov():
 	while $Camera2D.zoom.x <= curr_zoom.x * 1.2:
 		$Camera2D.zoom += Vector2(0.01, 0.01)
@@ -75,8 +80,9 @@ func _shrink_fov():
 	curr_zoom = $Camera2D.zoom
 	
 func _redo_fov():
+	#$PointLight2D.shadow_enabled = true
 	while $Camera2D.zoom.x > og_zoom.x:
-		$Camera2D.zoom -= Vector2(0.01, 0.01)
+		$Camera2D.zoom -= Vector2(0.05, 0.05)
 		await get_tree().create_timer(0.01).timeout
 	curr_zoom = $Camera2D.zoom
 
