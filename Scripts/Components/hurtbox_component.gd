@@ -8,6 +8,8 @@ signal hurt(hitbox_component: HitboxComponent)
 
 
 func recieve_hit(hitbox_component: HitboxComponent) -> void:
+	if "RigidBody" in parent.name:
+		$"../AnimatedSprite2D/CPUParticles2D".emitting = true
 	var health_component: HealthComponent = parent.health_component
 	if health_component.take_damage(hitbox_component.damage):
 		hurt.emit(hitbox_component)

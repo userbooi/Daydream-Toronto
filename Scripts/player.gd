@@ -32,6 +32,7 @@ func _ready() -> void:
 	Game.player = self
 	freeze = false
 	z_index = 0
+	$guns.visible = true
 
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	if curr_state == STATES.ALIVE:
@@ -57,6 +58,7 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 		physics_component.base_velocity = current_velocity
 		state.linear_velocity = physics_component.velocity
 	elif !gotDead:
+		$guns.visible = false
 		gotDead = true
 		freeze = true
 		dead.emit()
@@ -64,6 +66,7 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 
 func _on_died() -> void:
 	curr_state = STATES.DEAD
+	
 	
 func _shrink_fov():
 	while $Camera2D.zoom.x <= curr_zoom.x * 1.2:

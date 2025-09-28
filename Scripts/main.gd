@@ -67,6 +67,7 @@ func _start_death():
 	for node in get_node("Entities").get_children():
 		node.queue_free()
 	Game.player.linear_velocity = Vector2.ZERO
+	$Player/AnimatedSprite2D.play("death")
 	
 func check_enemy_left():
 	if Game.enemy_killed == Game.enemies[Game.curr_level]:
