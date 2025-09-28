@@ -98,7 +98,7 @@ _data = {
 point_count = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pubxs"]
-bg_color = Color(1, 0, 0, 1)
+bg_color = Color(0, 1, 0, 1)
 
 [node name="Player" type="RigidBody2D"]
 y_sort_enabled = true
