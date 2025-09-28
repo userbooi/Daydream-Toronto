@@ -1,8 +1,7 @@
-[gd_scene load_steps=23 format=4 uid="uid://bwekn7po0i1oq"]
+[gd_scene load_steps=25 format=4 uid="uid://bwekn7po0i1oq"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_6r04h"]
 [ext_resource type="PackedScene" uid="uid://cy6cmcrhv808e" path="res://Scenes/player.tscn" id="1_xm4y6"]
-[ext_resource type="PackedScene" uid="uid://buklchbsap0a2" path="res://Scenes/zombie.tscn" id="2_eiouw"]
 [ext_resource type="Texture2D" uid="uid://c6nhiy0m23p6g" path="res://Assets/tilesheets/tank.png" id="3_nnbxx"]
 [ext_resource type="Texture2D" uid="uid://dyf7ixj0178s3" path="res://Assets/tilesheets/brutalist_tileset.png" id="4_eetd7"]
 [ext_resource type="Texture2D" uid="uid://dig6qnjyeaneq" path="res://Assets/tilesheets/floor_tiles/floor_concrete1.png" id="5_aedqq"]
@@ -860,6 +859,43 @@ ambient_light_source = 1
 ambient_light_energy = 0.0
 reflected_light_source = 1
 
+[sub_resource type="Animation" id="Animation_8iapa"]
+resource_name = "death"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_egsb3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vfscy"]
+_data = {
+"RESET": SubResource("Animation_egsb3"),
+"death": SubResource("Animation_8iapa")
+}
+
 [node name="Main" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_6r04h")
@@ -878,9 +914,6 @@ tile_set = SubResource("TileSet_4axwg")
 [node name="Player" parent="." instance=ExtResource("1_xm4y6")]
 physics_material_override = SubResource("PhysicsMaterial_gv75s")
 
-[node name="Zombie" parent="." instance=ExtResource("2_eiouw")]
-position = Vector2(190, 84)
-
 [node name="Projectiles" type="Node" parent="."]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -896,6 +929,20 @@ texture = ExtResource("9_3s0tp")
 [node name="Entities" type="Node" parent="."]
 
 [node name="enemySpawnTimer" type="Timer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 2
+offset_left = -62.0
+offset_top = -20.0
+offset_right = 1186.0
+offset_bottom = 721.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_vfscy")
+}
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

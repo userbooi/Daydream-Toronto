@@ -10,9 +10,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	look_at(get_global_mouse_position())
-	handle_inputs()
-	detect_angle()
+	if Game.player.curr_state == Game.player.STATES.ALIVE:
+		look_at(get_global_mouse_position())
+		handle_inputs()
+		detect_angle()
 	
 func handle_inputs():
 	if Game.DEBUG:
