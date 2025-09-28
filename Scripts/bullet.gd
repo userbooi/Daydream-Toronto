@@ -7,7 +7,6 @@ extends CharacterBody2D
 @export var damage: int
 @export var maxrange: float
 @export var knockback_force: float
-@export var travelled: float = 0
 
 var time_alive = 0
 var multiplier = 3
@@ -37,7 +36,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func check_distance(delta: float) -> void:
-	if time_alive * speed * delta > maxrange:
+	if time_alive > maxrange:
 		queue_free()
 
 #func _physics_process(delta: float) -> void:

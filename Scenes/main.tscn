@@ -1,5 +1,6 @@
-[gd_scene load_steps=21 format=4 uid="uid://bwekn7po0i1oq"]
+[gd_scene load_steps=23 format=4 uid="uid://bwekn7po0i1oq"]
 
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_6r04h"]
 [ext_resource type="PackedScene" uid="uid://cy6cmcrhv808e" path="res://Scenes/player.tscn" id="1_xm4y6"]
 [ext_resource type="PackedScene" uid="uid://buklchbsap0a2" path="res://Scenes/zombie.tscn" id="2_eiouw"]
 [ext_resource type="Texture2D" uid="uid://c6nhiy0m23p6g" path="res://Assets/tilesheets/tank.png" id="3_nnbxx"]
@@ -9,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://mh1t71re3j5k" path="res://Assets/tilesheets/crate.png" id="6_ag1gn"]
 [ext_resource type="Texture2D" uid="uid://00wge4wi3c0c" path="res://Assets/tilesheets/floor_tiles/floor_concrete3.png" id="7_kvcxx"]
 [ext_resource type="Texture2D" uid="uid://bmvqu57y6bglh" path="res://Assets/lightmap/lightmap.png" id="9_3s0tp"]
+[ext_resource type="PackedScene" uid="uid://c1t2cdjw5dt56" path="res://Scenes/UI/sanity.tscn" id="10_t64d2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6sp8t"]
 texture = ExtResource("4_eetd7")
@@ -860,6 +862,7 @@ reflected_light_source = 1
 
 [node name="Main" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_6r04h")
 
 [node name="buildings" type="TileMapLayer" parent="."]
 z_index = -1
@@ -892,3 +895,9 @@ blend_mode = 1
 texture = ExtResource("9_3s0tp")
 
 [node name="Entities" type="Node" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Sanity" parent="CanvasLayer" instance=ExtResource("10_t64d2")]
