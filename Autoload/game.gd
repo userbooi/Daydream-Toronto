@@ -19,7 +19,7 @@ var crosshair_sprites: Dictionary = {
 var gun_stats: Dictionary = {
 	"pistol":   [200, 34, 2, 20, 0.5, 1, 0],
 	"smg":      [300, 20, 1.5, 15, 0.1, 1, PI/15],
-	"sniper":   [800, 100, 5, 25, 1.5, 1, 0],
+	"sniper":   [800, 100, 5, 25, 1.5, 5, 0],
 	"tommy":    [250, 40, 2, 20, 0.27, 1, 0],
 	"sawedoff": [350, 70, 1, 5, 1, 5, PI/12],
 	"bacon":    [100, 100000, 0.5, 0, 0.05, 100, 4 *PI],

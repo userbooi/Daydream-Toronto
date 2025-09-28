@@ -47,7 +47,7 @@ func check_spawn_area(spawn_pos) -> bool:
 	query.collision_mask = 3  # adjust to match layers you want to avoid
 
 	var result = space_state.intersect_shape(query)
-	
+	print(result)
 	if result.size() == 0:
 		return true
 	else:
