@@ -31,7 +31,6 @@ func _ready() -> void:
 
 
 func take_damage(damage: float) -> bool:
-	print("damage taken:", damage)
 	current_health -= damage
 	emit_signal("hurt", damage)
 	return true
