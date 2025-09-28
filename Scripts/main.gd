@@ -95,7 +95,6 @@ func _start_death():
 	Game.player.linear_velocity = Vector2.ZERO
 	$Player/AnimatedSprite2D.play("death")
 	$CanvasLayer/AnimationPlayer.play("start")
-	print("HI")
 	
 func check_enemy_left():
 	if Game.enemy_killed == Game.enemies[Game.curr_level]:
