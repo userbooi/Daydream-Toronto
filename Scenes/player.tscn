@@ -166,6 +166,7 @@ position = Vector2(-348, -227)
 rotation = 0.0102037
 
 [node name="HealthBar" type="ProgressBar" parent="."]
+z_index = 50
 offset_left = -40.0
 offset_top = 8.0
 offset_right = 40.0
