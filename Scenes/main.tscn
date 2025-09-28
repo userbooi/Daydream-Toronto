@@ -1164,8 +1164,16 @@ libraries = {
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Sanity" parent="CanvasLayer" instance=ExtResource("10_t64d2")]
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_right = -576.0
+grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1207,9 +1215,11 @@ libraries = {
 
 [node name="Death_Label" type="RichTextLabel" parent="CanvasLayer"]
 modulate = Color(1, 1, 1, 0)
-offset_top = 127.0
-offset_right = 1151.0
-offset_bottom = 296.0
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 120.0
+offset_bottom = 322.0
+grow_horizontal = 2
 theme_override_fonts/normal_font = ExtResource("12_o7hbl")
 theme_override_font_sizes/normal_font_size = 100
 bbcode_enabled = true

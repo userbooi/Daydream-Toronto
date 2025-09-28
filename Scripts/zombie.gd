@@ -77,6 +77,7 @@ func _on_body_exited(body: Node) -> void:
 func _on_died() -> void:
 	Game.enemy_killed += 1
 	queue_free()
+	Game.score += 100
 	#death code here
 	
 #func _on_body_entered_me(body: Node):

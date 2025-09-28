@@ -21,18 +21,17 @@ height = 12
 
 [node name="Sanity" type="Control"]
 layout_mode = 3
-anchors_preset = 15
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 1.0
 grow_horizontal = 2
-grow_vertical = 2
 script = ExtResource("1_d55u8")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 64.0
-value = 100.0
+max_value = 140.0
+value = 140.0
 texture_under = SubResource("GradientTexture2D_x6ql3")
 texture_progress = SubResource("GradientTexture2D_uwc62")
 texture_progress_offset = Vector2(4, 4)

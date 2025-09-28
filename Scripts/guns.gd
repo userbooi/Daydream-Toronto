@@ -59,8 +59,9 @@ func shoot():
 		bullet_instance.knockback_force = Game.gun_stats[Game.gun_names[Game.gun_num]][3]
 		if Game.gun_num == 2:
 			get_node("/root/Main/Projectiles").add_child(bullet_instance)
-			get_tree().create_timer(0.02).timeout
-		get_node("/root/Main/Projectiles").add_child(bullet_instance)
+			await get_tree().create_timer(0.02).timeout
+		else:
+			get_node("/root/Main/Projectiles").add_child(bullet_instance)
 	await get_tree().create_timer(0.05).timeout
 	$Sprite2D/shootPoint/CPUParticles2D/PointLight2D.visible = false
 

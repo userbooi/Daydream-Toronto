@@ -75,7 +75,7 @@ func _on_died() -> void:
 	curr_state = STATES.DEAD
 
 func _shrink_fov():
-	while $Camera2D.zoom.x <= curr_zoom.x * 1.2:
+	while $Camera2D.zoom.x <= curr_zoom.x * 1.1:
 		$Camera2D.zoom += Vector2(0.01, 0.01)
 		await get_tree().create_timer(0.02).timeout
 	curr_zoom = $Camera2D.zoom

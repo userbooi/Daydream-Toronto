@@ -7,7 +7,7 @@ var sacable = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$TextureProgressBar.value = 100
+	$TextureProgressBar.value = 140
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -28,4 +28,4 @@ func _on_timer_timeout() -> void:
 	sac_end.emit()
 	
 func _add_sanity():
-	$TextureProgressBar.value += 20
+	$TextureProgressBar.value += 40
