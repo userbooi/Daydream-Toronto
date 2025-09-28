@@ -45,7 +45,7 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	physics_component.base_velocity = current_velocity
 	state.linear_velocity = physics_component.velocity
 
-	
-func _on_death() -> void:
+
+func _on_died() -> void:
 	Game.player = null
 	queue_free()

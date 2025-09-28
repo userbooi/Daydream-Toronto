@@ -31,7 +31,8 @@ var offset_magnitude_range : float
 
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	
-	player_position = Game.player.global_position
+	if Game.player:
+		player_position = Game.player.global_position
 	
 	if current_state == STATE.CHASING and chasing_offset == Vector2.ZERO:
 		var angle = randf() * TAU
@@ -73,3 +74,8 @@ func _on_body_exited(body: Node) -> void:
 	print("body exited")
 	if body == Game.player:
 		current_state = STATE.CHASING
+
+
+func _on_died() -> void:
+	queue_free()
+	#death code here
