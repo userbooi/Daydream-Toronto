@@ -16,7 +16,7 @@ offsets = PackedFloat32Array(0, 0.333333, 0.553333, 0.953333, 0.989583)
 colors = PackedColorArray(0.584314, 0.0196078, 0, 0.47451, 0.572549, 0.447059, 0.0470588, 0.584314, 0, 0, 0, 0.572549, 0.0941176, 0.0627451, 0.027451, 0.192157, 0.403922, 0.27451, 0.121569, 0.156863)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1m0h8"]
-size = Vector2(22, 16)
+size = Vector2(22, 20)
 
 [node name="bullet" type="CharacterBody2D"]
 position = Vector2(9, 0)
@@ -53,7 +53,7 @@ collision_mask = 132
 script = ExtResource("3_6wey2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
-position = Vector2(0, -9.53674e-08)
+position = Vector2(0, 0.200001)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_1m0h8")
 

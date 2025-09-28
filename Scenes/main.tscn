@@ -10,9 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://00wge4wi3c0c" path="res://Assets/tilesheets/floor_tiles/floor_concrete3.png" id="7_kvcxx"]
 [ext_resource type="Texture2D" uid="uid://bmvqu57y6bglh" path="res://Assets/lightmap/lightmap.png" id="9_3s0tp"]
 [ext_resource type="PackedScene" uid="uid://c1t2cdjw5dt56" path="res://Scenes/UI/sanity.tscn" id="10_t64d2"]
-[ext_resource type="Script" path="res://Scenes/start_animation.gd" id="11_ccj84"]
-[ext_resource type="FontFile" uid="uid://l4f4lns7mif6" path="res://Assets/fonts/ArcadeBook-EEGj.ttf" id="12_o7hbl"]
-[ext_resource type="Script" path="res://Scripts/wave_clear.gd" id="12_uah3r"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_nhta3"]
 tile_data = PackedInt32Array(131072, 262151, 2, 196608, 262151, 3, 262144, 262151, 4, 327680, 262151, 5, 393216, 262151, 6, 458752, 262151, 7, 65537, 327687, 1, 131073, 327687, 2, 196609, 327687, 3, 262145, 327687, 4, 327681, 327687, 5, 393217, 327687, 6, 458753, 327687, 7, 524289, 327687, 8, 65538, 393223, 1, 131074, 393223, 2, 196610, 393223, 3, 262146, 393223, 4, 327682, 393223, 5, 393218, 393223, 6, 458754, 393223, 7, 524290, 393223, 8, 3, 458759, 0, 65539, 458759, 1, 131075, 458759, 2, 196611, 458759, 3, 262147, 458759, 4, 327683, 458759, 5, 393219, 458759, 6, 458755, 458759, 7, 524291, 458759, 8, 4, 524295, 0, 65540, 524295, 1, 131076, 524295, 2, 196612, 524295, 3, 262148, 524295, 4, 327684, 524295, 5, 393220, 524295, 6, 458756, 524295, 7, 524292, 524295, 8, 5, 589831, 0, 65541, 589831, 1, 131077, 589831, 2, 196613, 589831, 3, 262149, 589831, 4, 327685, 589831, 5, 393221, 589831, 6, 458757, 589831, 7, 524293, 589831, 8, 65542, 655367, 1, 131078, 655367, 2, 196614, 655367, 3, 262150, 655367, 4, 327686, 655367, 5, 393222, 655367, 6, 458758, 655367, 7, 524294, 655367, 8, 65543, 720903, 1, 131079, 720903, 2, 196615, 720903, 3, 262151, 720903, 4, 327687, 720903, 5, 393223, 720903, 6, 458759, 720903, 7, 131080, 786439, 2, 196616, 786439, 3, 458760, 786439, 7)
@@ -909,103 +906,6 @@ _data = {
 "death": SubResource("Animation_8iapa")
 }
 
-[sub_resource type="Animation" id="Animation_wncua"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_muy1o"]
-resource_name = "fade_out"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.420448, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_im7w4"]
-_data = {
-"RESET": SubResource("Animation_wncua"),
-"fade_out": SubResource("Animation_muy1o")
-}
-
-[sub_resource type="Animation" id="Animation_4kurg"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:theme_override_font_sizes/normal_font_size")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [80]
-}
-
-[sub_resource type="Animation" id="Animation_qu4e2"]
-resource_name = "start"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(1.6, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:theme_override_font_sizes/normal_font_size")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [100, 120]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_et5ho"]
-_data = {
-"RESET": SubResource("Animation_4kurg"),
-"start": SubResource("Animation_qu4e2")
-}
-
 [node name="Main" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_6r04h")
@@ -1075,39 +975,4 @@ visible = false
 
 [node name="Sanity" parent="CanvasLayer" instance=ExtResource("10_t64d2")]
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/ColorRect"]
-libraries = {
-"": SubResource("AnimationLibrary_im7w4")
-}
-script = ExtResource("11_ccj84")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
-texture_filter = 2
-anchors_preset = 10
-anchor_right = 1.0
-offset_top = 86.0
-offset_bottom = 302.0
-grow_horizontal = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("12_o7hbl")
-theme_override_font_sizes/normal_font_size = 80
-bbcode_enabled = true
-text = "[center]WAVE CLEAR[/center]"
-autowrap_mode = 0
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/RichTextLabel"]
-libraries = {
-"": SubResource("AnimationLibrary_et5ho")
-}
-script = ExtResource("12_uah3r")
-
-[connection signal="next_wave" from="." to="CanvasLayer/RichTextLabel/AnimationPlayer" method="_on_main_next_wave"]
 [connection signal="timeout" from="enemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]
