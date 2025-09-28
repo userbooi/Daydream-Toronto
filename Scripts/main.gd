@@ -3,7 +3,7 @@ signal sacrifice
 signal next_wave
 
 @onready var enemy = preload("res://Scenes/zombie.tscn")
-
+var point = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,6 +18,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	check_inputs()
 	check_enemy_left()
+	if ($Player.position.x ** 2 + $Player.position.y ** 2) ** 0.5 < 200:
+		point += 1
+	print(point)
 
 func check_inputs():
 	if Input.is_action_just_pressed("sacrifice") and Game.player.curr_state == Game.player.STATES.ALIVE:
