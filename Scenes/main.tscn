@@ -1136,7 +1136,6 @@ physics_material_override = SubResource("PhysicsMaterial_gv75s")
 environment = SubResource("Environment_d0plu")
 
 [node name="PointLight2D" type="PointLight2D" parent="WorldEnvironment"]
-visible = false
 position = Vector2(-12, -6)
 scale = Vector2(100000, 100000)
 energy = 0.8

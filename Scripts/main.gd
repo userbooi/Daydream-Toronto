@@ -102,7 +102,7 @@ func check_enemy_left():
 		next_level()
 		
 func next_level():
-	if Game.curr_level < 2:
+	if Game.curr_level < 3:
 		Game.curr_level += 1
 		next_wave.emit()
 		redo_lights()

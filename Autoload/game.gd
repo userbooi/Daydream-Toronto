@@ -35,7 +35,7 @@ var gun_names = ["pistol", "smg", "sniper", "tommy", "sawedoff", "bacon"]
 var gun_num = 0
 var bullet = preload("res://Assets/guns/bullet.png")
 
-var DEBUG = true
+var DEBUG = false
 
 var player
 var current_scene: Node
