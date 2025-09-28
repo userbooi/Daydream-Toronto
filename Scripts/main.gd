@@ -4,7 +4,6 @@ signal next_wave
 
 @onready var enemy = preload("res://Scenes/zombie.tscn")
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$ColorRect.self_modulate.a = 0
@@ -18,6 +17,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	check_inputs()
 	check_enemy_left()
+	if ($Player.position.x ** 2 + $Player.position.y ** 2) ** 0.5 < 200:
+		Game.score += 1
 
 func check_inputs():
 	if Input.is_action_just_pressed("sacrifice") and Game.player.curr_state == Game.player.STATES.ALIVE:
@@ -47,11 +48,9 @@ func check_spawn_area(spawn_pos) -> bool:
 	query.collision_mask = 3  # adjust to match layers you want to avoid
 
 	var result = space_state.intersect_shape(query)
-	print(result)
 	if result.size() == 0:
 		return true
 	else:
-		print('HI')
 		return false
 
 func _on_enemy_spawn_timer_timeout() -> void:
@@ -94,6 +93,7 @@ func _start_death():
 	for node in get_node("Entities").get_children():
 		node.queue_free()
 	Game.player.linear_velocity = Vector2.ZERO
+	$CanvasLayer/score.text = "[center]Score: {score}[/center]".format({"score": Game.score})
 	$Player/AnimatedSprite2D.play("death")
 	$CanvasLayer/AnimationPlayer.play("start")
 	
@@ -102,7 +102,7 @@ func check_enemy_left():
 		next_level()
 		
 func next_level():
-	if Game.curr_level < 1:
+	if Game.curr_level < 2:
 		Game.curr_level += 1
 		next_wave.emit()
 		redo_lights()

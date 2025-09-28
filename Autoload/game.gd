@@ -47,6 +47,7 @@ var spawn_time = [0.5, 0.25, 0.15, 0.1]
 
 var curr_enemy_num = 0
 var enemy_killed = 0
+var score = 0
 
 func _ready() -> void:
 	var root: Node = get_tree().root
@@ -69,6 +70,7 @@ func _deferred_switch_scene(scene_path: String) -> void:
 	
 func reset_game():
 	gun_num = 0
+	score = 0
 	curr_level = 0
 	curr_enemy_num = 0
 	enemy_killed = 0
