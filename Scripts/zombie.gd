@@ -64,14 +64,12 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 
 
 func _on_body_entered(body: Node) -> void:
-	print("body entered")
 	if body == Game.player:
 		current_state = STATE.BLINE
 		chasing_offset = Vector2.ZERO
 
 
 func _on_body_exited(body: Node) -> void:
-	print("body exited")
 	if body == Game.player:
 		current_state = STATE.CHASING
 

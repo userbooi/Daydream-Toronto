@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 	check_enemy_left()
 
 func check_inputs():
-	if Input.is_action_just_pressed("sacrifice"):
+	if Input.is_action_just_pressed("sacrifice") and Game.player.curr_state == Game.player.STATES.ALIVE:
 		sacrifice.emit()
 		
 func spawn_enemy(pos):
@@ -68,6 +68,7 @@ func _start_death():
 		node.queue_free()
 	Game.player.linear_velocity = Vector2.ZERO
 	$Player/AnimatedSprite2D.play("death")
+	$CanvasLayer/AnimationPlayer.play("start")
 	
 func check_enemy_left():
 	if Game.enemy_killed == Game.enemies[Game.curr_level]:
@@ -85,6 +86,4 @@ func next_level():
 		$enemySpawnTimer.start()
 	else:
 		print("WIN")
-	
-	
 	
