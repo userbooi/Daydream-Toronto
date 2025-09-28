@@ -57,8 +57,8 @@ func shoot():
 		bullet_instance.maxrange = Game.gun_stats[Game.gun_names[Game.gun_num]][2]
 		bullet_instance.knockback_force = Game.gun_stats[Game.gun_names[Game.gun_num]][3]
 		get_node("/root/Main/Projectiles").add_child(bullet_instance)
-		await get_tree().create_timer(0.05).timeout
-		$Sprite2D/shootPoint/CPUParticles2D/PointLight2D.visible = false
+	await get_tree().create_timer(0.05).timeout
+	$Sprite2D/shootPoint/CPUParticles2D/PointLight2D.visible = false
 
 func detect_angle():
 	if (get_global_mouse_position().x < Game.player.position.x):
