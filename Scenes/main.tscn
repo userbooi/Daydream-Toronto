@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://bwekn7po0i1oq"]
+[gd_scene load_steps=34 format=4 uid="uid://bwekn7po0i1oq"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_6r04h"]
 [ext_resource type="PackedScene" uid="uid://cy6cmcrhv808e" path="res://Scenes/player.tscn" id="1_xm4y6"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://bmvqu57y6bglh" path="res://Assets/lightmap/lightmap.png" id="9_3s0tp"]
 [ext_resource type="PackedScene" uid="uid://c1t2cdjw5dt56" path="res://Scenes/UI/sanity.tscn" id="10_t64d2"]
 [ext_resource type="Script" path="res://Scenes/start_animation.gd" id="11_ccj84"]
+[ext_resource type="FontFile" uid="uid://l4f4lns7mif6" path="res://Assets/fonts/ArcadeBook-EEGj.ttf" id="12_o7hbl"]
+[ext_resource type="Script" path="res://Scripts/wave_clear.gd" id="12_uah3r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6sp8t"]
 texture = ExtResource("4_eetd7")
@@ -897,21 +899,6 @@ _data = {
 "death": SubResource("Animation_8iapa")
 }
 
-[sub_resource type="Animation" id="Animation_muy1o"]
-resource_name = "fade_out"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.420448, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_wncua"]
 length = 0.001
 tracks/0/type = "value"
@@ -927,10 +914,86 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_muy1o"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.420448, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_im7w4"]
 _data = {
 "RESET": SubResource("Animation_wncua"),
 "fade_out": SubResource("Animation_muy1o")
+}
+
+[sub_resource type="Animation" id="Animation_qu4e2"]
+resource_name = "start"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.6, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:theme_override_font_sizes/normal_font_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [100, 120]
+}
+
+[sub_resource type="Animation" id="Animation_4kurg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:theme_override_font_sizes/normal_font_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [80]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_et5ho"]
+_data = {
+"RESET": SubResource("Animation_4kurg"),
+"start": SubResource("Animation_qu4e2")
 }
 
 [node name="Main" type="Node2D"]
@@ -999,4 +1062,25 @@ libraries = {
 }
 script = ExtResource("11_ccj84")
 
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+texture_filter = 2
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 86.0
+offset_bottom = 302.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("12_o7hbl")
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "[center]WAVE CLEAR[/center]"
+autowrap_mode = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/RichTextLabel"]
+libraries = {
+"": SubResource("AnimationLibrary_et5ho")
+}
+script = ExtResource("12_uah3r")
+
+[connection signal="next_wave" from="." to="CanvasLayer/RichTextLabel/AnimationPlayer" method="_on_main_next_wave"]
 [connection signal="timeout" from="enemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]
